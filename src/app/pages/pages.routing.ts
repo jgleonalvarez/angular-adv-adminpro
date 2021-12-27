@@ -11,6 +11,7 @@ import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
       { path: 'progress', component: ProgressComponent, data: { title: 'Progress' } },
       { path: 'promesas', component: PromesasComponent, data: { title: 'Promesas' } },
       { path: 'rxjs', component: RxjsComponent, data: { title: 'Rxjs' } },
+
+      // Mantenimientos
+      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuario de aplicación'}},
     ]
   },];
 
