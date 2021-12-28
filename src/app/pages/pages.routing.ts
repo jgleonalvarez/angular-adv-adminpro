@@ -1,3 +1,5 @@
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +14,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 
 const routes: Routes = [
   {
@@ -28,7 +31,10 @@ const routes: Routes = [
       { path: 'rxjs', component: RxjsComponent, data: { title: 'Rxjs' } },
 
       // Mantenimientos
-      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuario de aplicación'}},
+      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Mantenimiento de Usuarios'}},
+      { path: 'hospitales', component: HospitalesComponent, data: {title: 'Mantenimiento de Hospitales'}},
+      { path: 'medicos', component: MedicosComponent, data: {title: 'Mantenimiento de Médicos'}},
+      { path: 'medicos/:id', component: MedicoComponent, data: {title: 'Mantenimiento de Médicos'}},
     ]
   },];
 
