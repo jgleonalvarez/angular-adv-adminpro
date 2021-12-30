@@ -15,6 +15,8 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +26,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
       { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Account Settings' } },
+      { path: 'busqueda/:termino', component: BusquedaComponent, data: { title: 'Búsquedas Generales' } },
       { path: 'grafica1', component: Grafica1Component, data: { title: 'Grafica1' } },
       { path: 'perfil', component: PerfilComponent, data: { title: 'Perfil de Usuario' } },
       { path: 'progress', component: ProgressComponent, data: { title: 'Progress' } },
@@ -31,10 +34,15 @@ const routes: Routes = [
       { path: 'rxjs', component: RxjsComponent, data: { title: 'Rxjs' } },
 
       // Mantenimientos
-      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Mantenimiento de Usuarios'}},
-      { path: 'hospitales', component: HospitalesComponent, data: {title: 'Mantenimiento de Hospitales'}},
-      { path: 'medicos', component: MedicosComponent, data: {title: 'Mantenimiento de Médicos'}},
-      { path: 'medicos/:id', component: MedicoComponent, data: {title: 'Mantenimiento de Médicos'}},
+      { path: 'hospitales', component: HospitalesComponent, data: { title: 'Mantenimiento de Hospitales' } },
+      { path: 'medicos', component: MedicosComponent, data: { title: 'Mantenimiento de Médicos' } },
+      { path: 'medicos/:id', component: MedicoComponent, data: { title: 'Mantenimiento de Médicos' } },
+
+      // ROLES ADMIN
+      {
+        path: 'usuarios', component: UsuariosComponent, data: { title: 'Mantenimiento de Usuarios' },
+        canActivate: [AdminGuard]
+      },
     ]
   },];
 

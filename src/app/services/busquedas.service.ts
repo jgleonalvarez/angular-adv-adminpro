@@ -11,6 +11,7 @@ const base_url = environment.base_url;
   providedIn: 'root',
 })
 export class BusquedasService {
+
   constructor(private http: HttpClient) {}
 
   get token(): string {
@@ -59,5 +60,11 @@ export class BusquedasService {
           }
         })
       );
+  }
+
+  busquedaGlobal(termino: any) {
+    const url = `${base_url}/todo/${termino}`;
+    return this.http
+      .get(url, this.headers);
   }
 }
